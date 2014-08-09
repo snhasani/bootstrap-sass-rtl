@@ -25,7 +25,7 @@
     $list: "#{$list}, .col-#{$class}-#{$i}";
   }
   #{$list} {
-    float: left;
+    float: $default;
   }
 }
 
@@ -38,27 +38,27 @@
   }
   @if ($type == push) and ($index > 0) {
     .col-#{$class}-push-#{$index} {
-      left: percentage(($index / $grid-columns));
+      #{$default}: percentage(($index / $grid-columns));
     }
   }
   @if ($type == push) and ($index == 0) {
     .col-#{$class}-push-0 {
-      left: auto;
+      #{$default}: auto;
     }
   }
   @if ($type == pull) and ($index > 0) {
     .col-#{$class}-pull-#{$index} {
-      right: percentage(($index / $grid-columns));
+      #{$opposite}: percentage(($index / $grid-columns));
     }
   }
   @if ($type == pull) and ($index == 0) {
     .col-#{$class}-pull-0 {
-      right: auto;
+      #{$opposite}: auto;
     }
   }
   @if ($type == offset) {
     .col-#{$class}-offset-#{$index} {
-      margin-left: percentage(($index / $grid-columns));
+      margin-#{$default}: percentage(($index / $grid-columns));
     }
   }
 }

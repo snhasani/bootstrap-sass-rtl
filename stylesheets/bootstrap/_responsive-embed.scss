@@ -15,7 +15,10 @@
   object {
     position: absolute;
     top: 0;
-    left: 0;
+    #{$default}: 0;
+    @if $default == right {
+      left: auto;
+    }
     bottom: 0;
     height: 100%;
     width: 100%;

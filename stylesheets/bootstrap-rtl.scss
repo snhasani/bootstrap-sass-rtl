@@ -1,0 +1,9 @@
+
+// Reset the float direction, this is the default for RTL languages
+$default:               right;
+$opposite:              left;
+
+$default-direction:     rtl;
+$opposite-direction:    ltr;
+
+@import 'bs';

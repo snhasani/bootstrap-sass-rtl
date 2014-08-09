@@ -80,6 +80,17 @@ input[type="checkbox"]:focus {
   @include tab-focus();
 }
 
+// Override input tag direction in rtl mode
+@if $default == right {
+  input[type="url"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="number"],
+  input[type="password"] {
+    direction: $opposite;
+  }
+}
+
 // Adjust output element
 output {
   display: block;
@@ -215,7 +226,7 @@ input[type="month"] {
   margin-bottom: 10px;
 
   label {
-    padding-left: 20px;
+    padding-#{$default}: 20px;
     margin-bottom: 0;
     font-weight: normal;
     cursor: pointer;
@@ -226,7 +237,7 @@ input[type="month"] {
 .checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
   position: absolute;
-  margin-left: -20px;
+  margin-#{$default}: -20px;
   margin-top: 4px \9;
 }
 
@@ -239,7 +250,7 @@ input[type="month"] {
 .radio-inline,
 .checkbox-inline {
   display: inline-block;
-  padding-left: 20px;
+  padding-#{$default}: 20px;
   margin-bottom: 0;
   vertical-align: middle;
   font-weight: normal;
@@ -248,7 +259,7 @@ input[type="month"] {
 .radio-inline + .radio-inline,
 .checkbox-inline + .checkbox-inline {
   margin-top: 0;
-  margin-left: 10px; // space out consecutive inline controls
+  margin-#{$default}: 10px; // space out consecutive inline controls
 }
 
 // Apply same disabled cursor tweak as for inputs
@@ -323,14 +334,17 @@ input[type="checkbox"] {
 
   // Ensure icons don't overlap text
   .form-control {
-    padding-right: ($input-height-base * 1.25);
+    padding-#{$opposite}: ($input-height-base * 1.25);
   }
 }
 // Feedback icon (requires .glyphicon classes)
 .form-control-feedback {
   position: absolute;
   top: ($line-height-computed + 5); // Height of the `label` and its margin
-  right: 0;
+  #{$opposite}: 0;
+  @if $default == right {
+    right: auto;
+  }
   z-index: 2; // Ensure icon is above input groups
   display: block;
   width: $input-height-base;
@@ -442,13 +456,13 @@ input[type="checkbox"] {
       vertical-align: middle;
 
       label {
-        padding-left: 0;
+        padding-#{$default}: 0;
       }
     }
     .radio input[type="radio"],
     .checkbox input[type="checkbox"] {
       position: relative;
-      margin-left: 0;
+      margin-#{$default}: 0;
     }
 
     // Validation states
@@ -496,7 +510,7 @@ input[type="checkbox"] {
   // labels on narrow viewports stack the same as a default form example.
   @media (min-width: $screen-sm-min) {
     .control-label {
-      text-align: right;
+      text-align: $opposite;
       margin-bottom: 0;
       padding-top: ($padding-base-vertical + 1); // Default padding plus a border
     }
@@ -508,7 +522,7 @@ input[type="checkbox"] {
   // `position: relative;` on them. Also accounts for the grid gutter padding.
   .has-feedback .form-control-feedback {
     top: 0;
-    right: ($grid-gutter-width / 2);
+    #{$opposite}: ($grid-gutter-width / 2);
   }
 
   // Form group sizes

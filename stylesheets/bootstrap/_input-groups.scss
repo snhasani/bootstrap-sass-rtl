@@ -25,7 +25,7 @@
     // IE9 fubars the placeholder attribute in text inputs and the arrows on
     // select elements in input groups. To fix it, we float the input. Details:
     // https://github.com/twbs/bootstrap/issues/11561#issuecomment-28936855
-    float: left;
+    float: $default;
 
     width: 100%;
     margin-bottom: 0;
@@ -111,7 +111,7 @@
   @include border-right-radius(0);
 }
 .input-group-addon:first-child {
-  border-right: 0;
+  border-#{$opposite}: 0;
 }
 .input-group .form-control:last-child,
 .input-group-addon:last-child,
@@ -120,10 +120,14 @@
 .input-group-btn:last-child > .dropdown-toggle,
 .input-group-btn:first-child > .btn:not(:first-child),
 .input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
-  @include border-left-radius(0);
+  @if $default == left {
+    @include border-left-radius(0);
+  } @else {
+    @include border-right-radius(0);
+  }
 }
 .input-group-addon:last-child {
-  border-left: 0;
+  border-#{$default}: 0;
 }
 
 // Button input groups
@@ -140,7 +144,7 @@
   > .btn {
     position: relative;
     + .btn {
-      margin-left: -1px;
+      margin-#{$default}: -1px;
     }
     // Bring the "active" button to the front
     &:hover,
@@ -154,13 +158,13 @@
   &:first-child {
     > .btn,
     > .btn-group {
-      margin-right: -1px;
+      margin-#{$opposite}: -1px;
     }
   }
   &:last-child {
     > .btn,
     > .btn-group {
-      margin-left: -1px;
+      margin-#{$default}: -1px;
     }
   }
 }

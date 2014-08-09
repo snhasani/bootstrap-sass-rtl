@@ -8,7 +8,7 @@
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: 2px;
+  margin-#{$default}: 2px;
   vertical-align: middle;
   border-top:   $caret-width-base solid;
   border-right: $caret-width-base solid transparent;
@@ -29,16 +29,19 @@
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  #{$default}: 0;
+  @if $default == right {
+    left: auto;
+  }
   z-index: $zindex-dropdown;
   display: none; // none by default, but block on "open" of the menu
-  float: left;
+  float: $default;
   min-width: 160px;
   padding: 5px 0;
   margin: 2px 0 0; // override default ul
   list-style: none;
   font-size: $font-size-base;
-  text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+  text-align: $default; // Ensures proper alignment if parent has it changed (e.g., modal footer)
   background-color: $dropdown-bg;
   border: 1px solid $dropdown-fallback-border; // IE8 fallback
   border: 1px solid $dropdown-border;
@@ -49,9 +52,9 @@
   // Aligns the dropdown menu to right
   //
   // Deprecated as of 3.1.0 in favor of `.dropdown-menu-[dir]`
-  &.pull-right {
-    right: 0;
-    left: auto;
+  &.pull-#{$opposite} {
+    #{$opposite}: 0;
+    #{$default}: auto;
   }
 
   // Dividers (basically an hr) within the dropdown
@@ -133,9 +136,9 @@
 //
 // Add extra class to `.dropdown-menu` to flip the alignment of the dropdown
 // menu with the parent.
-.dropdown-menu-right {
-  left: auto; // Reset the default from `.dropdown-menu`
-  right: 0;
+.dropdown-menu-#{$opposite} {
+  #{$default}: auto; // Reset the default from `.dropdown-menu`
+  #{$opposite}: 0;
 }
 // With v3, we enabled auto-flipping if you have a dropdown within a right
 // aligned nav component. To enable the undoing of that, we provide an override
@@ -143,9 +146,9 @@
 //
 // This is only for left-aligning a dropdown menu within a `.navbar-right` or
 // `.pull-right` nav component.
-.dropdown-menu-left {
-  left: 0;
-  right: auto;
+.dropdown-menu-#{$default} {
+  #{$default}: 0;
+  #{$opposite}: auto;
 }
 
 // Dropdown section headers
@@ -169,9 +172,9 @@
 }
 
 // Right aligned dropdowns
-.pull-right > .dropdown-menu {
-  right: 0;
-  left: auto;
+.pull-#{$opposite} > .dropdown-menu {
+  #{$opposite}: 0;
+  #{$default}: auto;
 }
 
 // Allow for dropdowns to go bottom up (aka, dropup-menu)
@@ -201,15 +204,16 @@
 // Reiterate per navbar.less and the modified component alignment there.
 
 @media (min-width: $grid-float-breakpoint) {
-  .navbar-right {
+  .navbar-#{$opposite} {
     .dropdown-menu {
-      right: 0; left: auto;
+      #{$opposite}: 0;
+      #{$default}: auto;
     }
     // Necessary for overrides of the default right aligned menu.
     // Will remove come v4 in all likelihood.
-    .dropdown-menu-left {
-      left: 0; right: auto;
+    .dropdown-menu-#{$default} {
+      #{$default}: 0;
+      #{$opposite}: auto;
     }
   }
 }
-

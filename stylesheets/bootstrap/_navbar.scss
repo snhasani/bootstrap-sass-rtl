@@ -32,7 +32,7 @@
   @include clearfix();
 
   @media (min-width: $grid-float-breakpoint) {
-    float: left;
+    float: $default;
   }
 }
 
@@ -162,7 +162,7 @@
 // Brand/project name
 
 .navbar-brand {
-  float: left;
+  float: $default;
   padding: $navbar-padding-vertical $navbar-padding-horizontal;
   font-size: $font-size-large;
   line-height: $line-height-computed;
@@ -176,7 +176,7 @@
   @media (min-width: $grid-float-breakpoint) {
     .navbar > .container &,
     .navbar > .container-fluid & {
-      margin-left: -$navbar-padding-horizontal;
+      margin-#{$default}: -$navbar-padding-horizontal;
     }
   }
 }
@@ -189,8 +189,8 @@
 
 .navbar-toggle {
   position: relative;
-  float: right;
-  margin-right: $navbar-padding-horizontal;
+  float: $opposite;
+  margin-#{$opposite}: $navbar-padding-horizontal;
   padding: 9px 10px;
   @include navbar-vertical-align(34px);
   background-color: transparent;
@@ -261,19 +261,19 @@
 
   // Uncollapse the nav
   @media (min-width: $grid-float-breakpoint) {
-    float: left;
+    float: $default;
     margin: 0;
 
     > li {
-      float: left;
+      float: $default;
       > a {
         padding-top:    $navbar-padding-vertical;
         padding-bottom: $navbar-padding-vertical;
       }
     }
 
-    &.navbar-right:last-child {
-      margin-right: -$navbar-padding-horizontal;
+    &.navbar-#{$opposite}:last-child {
+      margin-#{$opposite}: -$navbar-padding-horizontal;
     }
   }
 }
@@ -332,8 +332,8 @@
     @include box-shadow(none);
 
     // Outdent the form if last child to line up with content down the page
-    &.navbar-right:last-child {
-      margin-right: -$navbar-padding-horizontal;
+    &.navbar-#{$opposite}:last-child {
+      margin-#{$opposite}: -$navbar-padding-horizontal;
     }
   }
 }
@@ -376,13 +376,13 @@
   @include navbar-vertical-align($line-height-computed);
 
   @media (min-width: $grid-float-breakpoint) {
-    float: left;
+    float: $default;
     margin-left: $navbar-padding-horizontal;
     margin-right: $navbar-padding-horizontal;
 
     // Outdent the form if last child to line up with content down the page
-    &.navbar-right:last-child {
-      margin-right: 0;
+    &.navbar-#{$opposite}:last-child {
+      margin-#{$opposite}: 0;
     }
   }
 }

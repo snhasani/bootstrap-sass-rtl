@@ -10,13 +10,21 @@
     &:first-child {
       > a,
       > span {
-        @include border-left-radius($border-radius);
+        @if $default == left {
+          @include border-left-radius($border-radius);
+        } @else {
+          @include border-right-radius($border-radius);
+        }
       }
     }
     &:last-child {
       > a,
       > span {
-        @include border-right-radius($border-radius);
+        @if $default == left {
+          @include border-right-radius($border-radius);
+        } @else {
+          @include border-left-radius($border-radius);
+        }
       }
     }
   }

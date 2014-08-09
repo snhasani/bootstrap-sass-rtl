@@ -7,6 +7,14 @@ $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")
 // Variables
 // --------------------------------------------------
 
+//== Direction
+
+$default:               left !default;
+$opposite:              right !default;
+
+$default-direction:     ltr !default;
+$opposite-direction:    rtl !default;
+
 
 //== Colors
 //

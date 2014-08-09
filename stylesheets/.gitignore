@@ -1,0 +1,11 @@
+## generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+*.html
+images/*
+bootstrap/fonts/*
+bootstrap/javascripts/*
+.sass-cache/*

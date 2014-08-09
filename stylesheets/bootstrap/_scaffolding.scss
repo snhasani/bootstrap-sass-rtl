@@ -8,12 +8,10 @@
 // Heads up! This reset may cause conflicts with some third-party widgets.
 // For recommendations on resolving such conflicts, see
 // http://getbootstrap.com/getting-started/#third-box-sizing
-* {
-  @include box-sizing(border-box);
-}
+*,
 *:before,
 *:after {
-  @include box-sizing(border-box);
+  @include box-sizing(inherit);
 }
 
 
@@ -21,15 +19,23 @@
 
 html {
   font-size: 10px;
+  font-family: sans-serif; // 1 - from normalize
+  -ms-text-size-adjust: 100%; // 2 - from normalize
+  -webkit-text-size-adjust: 100%; // 2 - from normalize
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  @include box-sizing(border-box);
 }
 
 body {
+  background-color: $body-bg;
+  color: $text-color;
+  @if $default == right {
+    direction: rtl;
+  }
   font-family: $font-family-base;
   font-size: $font-size-base;
   line-height: $line-height-base;
-  color: $text-color;
-  background-color: $body-bg;
+  margin: 0; // Remove default margin. from normalize
 }
 
 // Reset fonts for relevant elements
@@ -46,8 +52,14 @@ textarea {
 // Links
 
 a {
+  background: transparent; // Remove the gray background color from active links in IE 10. from normalize
   color: $link-color;
   text-decoration: none;
+
+  &:active,
+  &:hover {
+    outline: 0; // Improve readability when focused and also mouse hovered in all browsers. from normalize
+  }
 
   &:hover,
   &:focus {
@@ -74,6 +86,7 @@ figure {
 // Images
 
 img {
+  border: 0; // Remove border when inside `a` element in IE 8/9/10. Normalize
   vertical-align: middle;
 }
 
@@ -111,10 +124,14 @@ img {
 // Horizontal rules
 
 hr {
-  margin-top:    $line-height-computed;
-  margin-bottom: $line-height-computed;
   border: 0;
   border-top: 1px solid $hr-border;
+  margin-bottom: $line-height-computed;
+  margin-top:    $line-height-computed;
+  // Address differences between Firefox and other browsers. Normalize
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  height: 0;
 }
 
 
