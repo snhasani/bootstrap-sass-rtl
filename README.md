@@ -12,12 +12,18 @@ Installation
 
 It is compatible with node-sass 0.8.3+. You can install it with:
 
-\`\``console $ bower install bootstrap-sass-rtl `\`\`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+$ bower install bootstrap-sass-rtl
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+Contributing
+------------
+
+bootstrap-sass-rtl has a one contributors, but your feel free for any bug report
+or contribut.
 
 ### Credits
 
-bootstrap-sass-rtl has a one contributors, but your feel free for any bug report
-or contribut:
-
-<!-- feel free to make these link wherever you wish --> \* [Sayyid Nasser
-Hassani](<https://twitter.com/snhasani>)
+-   [Sayyid Nasser Hassani](<https://twitter.com/snhasani>)
