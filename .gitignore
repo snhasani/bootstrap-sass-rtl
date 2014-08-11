@@ -33,7 +33,7 @@ nbproject
 .idea
 
 # Folders to ignore
-src/stylesheet/.sass-cache
+src/stylesheets/.sass-cache
 .sass-cache
 node_modules
 
