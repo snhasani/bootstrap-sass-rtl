@@ -39,26 +39,45 @@
   @if ($type == push) and ($index > 0) {
     .col-#{$class}-push-#{$index} {
       #{$default}: percentage(($index / $grid-columns));
+      @if $default == right {
+        #{$opposite}:auto;
+      }
     }
   }
   @if ($type == push) and ($index == 0) {
     .col-#{$class}-push-0 {
-      #{$default}: auto;
+      @if $default == right {
+        #{$opposite}: 0;
+        #{$default}: auto;
+      } @else {
+        #{$opposite}: auto;
+      }
     }
   }
   @if ($type == pull) and ($index > 0) {
     .col-#{$class}-pull-#{$index} {
       #{$opposite}: percentage(($index / $grid-columns));
+      @if $default == right {
+        #{$default}: auto;
+      }
     }
   }
   @if ($type == pull) and ($index == 0) {
     .col-#{$class}-pull-0 {
-      #{$opposite}: auto;
+      @if $default == right {
+        #{$opposite}: 0;
+        #{$default}: auto;
+      } @else {
+        #{$opposite}: auto;
+      }
     }
   }
   @if ($type == offset) {
     .col-#{$class}-offset-#{$index} {
       margin-#{$default}: percentage(($index / $grid-columns));
+      @if $default == right {
+        margin-#{$opposite}: auto;
+      }
     }
   }
 }

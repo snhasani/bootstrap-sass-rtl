@@ -87,7 +87,7 @@ input[type="checkbox"]:focus {
   input[type="email"],
   input[type="number"],
   input[type="password"] {
-    direction: $opposite;
+    direction: $opposite-direction;
   }
 }
 

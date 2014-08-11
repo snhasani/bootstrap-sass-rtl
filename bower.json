@@ -1,0 +1,38 @@
+{
+  "name": "bootstrap-sass-rtl",
+  "description": "Right-to-left (RTL) for Bootstrap Sass",
+  "version": "3.2.0.1",
+  "homepage": "https://github.com/snhasani/bootstrap-sass-rtl",
+  "authors": [
+    "Sayyid Nasser Hassani <snhasani@gmail.com>"
+  ],
+  "main": [
+    "src/stylesheets/bootstrap-rtl.scss",
+    "src/stylesheets/bootstrap-ltr.scss",
+    "dist/fonts/bootstrap/glyphicons-halflings-regular.eot",
+    "dist/fonts/bootstrap/glyphicons-halflings-regular.svg",
+    "dist/fonts/bootstrap/glyphicons-halflings-regular.ttf",
+    "dist/fonts/bootstrap/glyphicons-halflings-regular.woff"
+  ],
+  "keywords": [
+    "bootstrap",
+    "sass",
+    "css",
+    "rtl",
+    "farsi",
+    "persian",
+    "arabic",
+    "hebrew"
+  ],
+  "ignore": [
+    "**/.*",
+    "test",
+    "*.gemspec",
+    "Rakefile",
+    "Gemfile"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.9.0"
+  },
+  "license": "MIT"
+}
