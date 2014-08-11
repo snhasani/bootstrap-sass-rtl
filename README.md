@@ -5,12 +5,16 @@ RTL for Bootstrap-Sass
 [Bootstrap Sass](<http://github.com/twbs/bootstrap-sass>), with helping sass
 variables in the peace and calm.
 
+Installation
+------------
 
+### Bower
 
-Development and Contributing
-----------------------------
+It is compatible with node-sass 0.8.3+. You can install it with:
 
-## Credits
+\`\``console $ bower install bootstrap-sass-rtl `\`\`
+
+### Credits
 
 bootstrap-sass-rtl has a one contributors, but your feel free for any bug report
 or contribut:
