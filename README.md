@@ -12,4 +12,4 @@
 bootstrap-sass-rtl has a one contributors, but your feel free for any bug report or contribut:
 
 <!-- feel free to make these link wherever you wish -->
-* [Sayyid Nasser Hassani](https://twitter.com/snhasani_)
+* [Sayyid Nasser Hassani](https://twitter.com/snhasani)
