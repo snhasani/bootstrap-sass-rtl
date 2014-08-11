@@ -4,6 +4,7 @@ _site
 .ruby-version
 
 ## Numerous always-ignore extensions
+*.stackdump
 *.diff
 *.err
 *.orig
