@@ -40,3 +40,5 @@ node_modules
 # Ignore zipped release dist files
 *.zip
 
+# temporary
+gulpfile.js
